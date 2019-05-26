@@ -1,0 +1,32 @@
+{
+  "name": "gatsby-source-npmsio",
+  "version": "0.0.1",
+  "description": "Source plugin for pulling data into Gatsby from npms.io",
+  "author": "Malcolm Kee <malcolm.keeweesiong@gmail.com>",
+  "scripts": {
+    "lint": "eslint src"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "npm",
+    "npmsio"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "gatsby-node-helpers": "^0.3.0",
+    "got": "^9.6.0"
+  },
+  "peerDependencies": {
+    "gatsby": ">2.0.0"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/malcolm-kee/gatsby-source-npmsio",
+  "homepage": "https://github.com/malcolm-kee/gatsby-source-npmsio#readme",
+  "bugs": {
+    "url": "https://github.com/malcolm-kee/gatsby-source-npmsio/issues"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0"
+  }
+}
