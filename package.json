@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-npmsio",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Source plugin for pulling data into Gatsby from npms.io",
   "author": "Malcolm Kee <malcolm.keeweesiong@gmail.com>",
   "scripts": {
