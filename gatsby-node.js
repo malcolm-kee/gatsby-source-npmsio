@@ -11,26 +11,30 @@ const stringifyQualifier = qualifier =>
     return result + `${key}:${Array.isArray(val) ? val.join(',') : val}`;
   }, '');
 
-exports.sourceNodes = async ({ actions }, configOptions) => {
+exports.sourceNodes = async ({ actions, reporter }, configOptions) => {
   const { createNode } = actions;
   const { qualifier, name } = configOptions;
   const nodeFactory = createNodeFactory(name);
 
-  const data = await got(`https://api.npms.io/v2/search?q=${stringifyQualifier(qualifier)}`).then(
-    response => JSON.parse(response.body)
-  );
+  try {
+    const data = await got(`https://api.npms.io/v2/search?q=${stringifyQualifier(qualifier)}`).then(
+      response => JSON.parse(response.body)
+    );
 
-  data.results.forEach(({ package }) => {
-    const node = {
-      id: generateNodeId(name, package.name),
-      ...package,
-      created: new Date(package.date),
-      parent: null,
-      children: []
-    };
+    data.results.forEach(({ package }) => {
+      const node = {
+        id: generateNodeId(name, package.name),
+        ...package,
+        created: new Date(package.date),
+        parent: null,
+        children: []
+      };
 
-    createNode(nodeFactory(node));
-  });
+      createNode(nodeFactory(node));
+    });
 
-  return;
+    return;
+  } catch (e) {
+    reporter.error(`Error in gatsby-source-npmsio`, e);
+  }
 };
