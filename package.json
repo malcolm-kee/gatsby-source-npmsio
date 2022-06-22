@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "gatsby-node-helpers": "^0.3.0",
-    "got": "^9.6.0"
+    "got": "^11.8.5"
   },
   "peerDependencies": {
     "gatsby": ">2.0.0"
